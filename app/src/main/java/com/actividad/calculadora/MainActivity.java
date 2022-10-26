@@ -4,13 +4,12 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    ImageButton botonSuma, botonResta;
+    ImageButton botonSuma, botonResta, botonDivision;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +31,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, RestaActivity.class));
+            }
+        });
+
+
+        botonDivision= (ImageButton) findViewById(R.id.btn_division);
+        botonDivision.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, DivisionActivity.class));
             }
         });
 
