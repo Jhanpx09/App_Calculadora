@@ -10,7 +10,7 @@ import android.widget.ImageButton;
 public class MainActivity extends AppCompatActivity {
 
 
-    ImageButton botonSuma;
+    ImageButton botonSuma, botonResta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, SumaActivity.class));
+            }
+        });
+
+
+        botonResta= (ImageButton) findViewById(R.id.btn_resta);
+        botonResta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, RestaActivity.class));
             }
         });
 
