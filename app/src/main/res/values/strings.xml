@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Calculadora</string>
+    <string name="inicio_logo_png">inicio_logo</string>
+    <string name="elige">Elige tu operacion</string>
+    <string name="suma">| Suma</string>
 </resources>
