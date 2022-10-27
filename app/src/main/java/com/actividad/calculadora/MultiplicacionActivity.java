@@ -8,25 +8,26 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class DivisionActivity extends AppCompatActivity implements View.OnClickListener {
+public class MultiplicacionActivity extends AppCompatActivity implements View.OnClickListener {
     ImageButton botonRegreso;
     EditText numero1, numero2;
-    ImageButton division;
+    ImageButton multiplicacion;
     TextView resultado;
     ImageButton borrar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_division);
-        // edit_text
+        setContentView(R.layout.activity_multiplicacion);
+
         numero1 = (EditText) findViewById(R.id.num1);
         numero2 = (EditText) findViewById(R.id.num2);
-        // image_button
+
         botonRegreso= (ImageButton) findViewById(R.id.atras);
-        division = (ImageButton) findViewById(R.id.division);
+        multiplicacion = (ImageButton) findViewById(R.id.multiplicar);
         borrar = (ImageButton) findViewById(R.id.borrador);
-        // text_view
+
         resultado = (TextView) findViewById(R.id.result);
 
         // events
@@ -35,7 +36,7 @@ public class DivisionActivity extends AppCompatActivity implements View.OnClickL
             public void onClick(View view) {
                 startActivity(
                         new Intent(
-                                DivisionActivity.this,
+                                MultiplicacionActivity.this,
                                 MainActivity.class
                         )
                 );
@@ -49,14 +50,14 @@ public class DivisionActivity extends AppCompatActivity implements View.OnClickL
             }
         });
 
-        division.setOnClickListener(new View.OnClickListener() {
+        multiplicacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String num1 = numero1.getText().toString();
+                String num2 = numero2.getText().toString();
+
                 generate_result(
-                        operation_division(
-                                value_number_1(),
-                                value_number_2()
-                        )
+                        operation_multiplicar( num1, num2 )
                 );
             }
         });
@@ -67,36 +68,17 @@ public class DivisionActivity extends AppCompatActivity implements View.OnClickL
         resultado.setText(result + "");
     }
 
-    public double value_number_1 () {
-        String value;
-        value = numero1.getText().toString();
-        if (value.length() == 0) {
-            value = "0";
-        }
-        return Integer.parseInt(value);
-    }
-
-    public double value_number_2 () {
-        String value;
-        value = numero2.getText().toString();
-        if (value.length() == 0) {
-            value = "0";
-        }
-        return Integer.parseInt(value);
-    }
-
     public void clean_action () {
         resultado.setText("");
         numero1.setText("");
         numero2.setText("");
     }
 
-    public double operation_division (double num_1, double num_2){
-        if (num_2 == 0) {
-            return 0;
-        } else {
-            return num_1 / num_2;
-        }
+    public double operation_multiplicar (String num_1, String num_2){
+        double num1 = Integer.parseInt(num_1);
+        double num2 = Integer.parseInt(num_2);
+
+        return num1 * num2;
     }
 
     @Override

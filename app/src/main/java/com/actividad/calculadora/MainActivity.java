@@ -9,7 +9,7 @@ import android.widget.ImageButton;
 public class MainActivity extends AppCompatActivity {
 
 
-    ImageButton botonSuma, botonResta, botonDivision;
+    ImageButton botonSuma, botonResta, botonDivision, botonMultiplicacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        botonMultiplicacion= (ImageButton) findViewById(R.id.btn_multiplicacion);
+        botonMultiplicacion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, MultiplicacionActivity.class));
+            }
+        });
 
     }
 }
